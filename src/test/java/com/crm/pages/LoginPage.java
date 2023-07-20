@@ -1,5 +1,6 @@
 package com.crm.pages;
 
+import com.crm.utilities.ConfigurationReader;
 import com.crm.utilities.Driver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -28,6 +29,8 @@ public class LoginPage {
         this.password.sendKeys(password);
         loginButton.click();
     }
+
+
 
 
 }
