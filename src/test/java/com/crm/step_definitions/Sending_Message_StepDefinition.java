@@ -1,7 +1,7 @@
 package com.crm.step_definitions;
 
 import com.crm.pages.LoginPage;
-import com.crm.pages.SendingMessagePage;
+import com.crm.pages.HomePage;
 import com.crm.utilities.BrowserUtilities;
 import com.crm.utilities.ConfigurationReader;
 import com.crm.utilities.Driver;
@@ -17,7 +17,7 @@ import java.time.Duration;
 
 public class Sending_Message_StepDefinition {
     LoginPage loginPage = new LoginPage();
-    SendingMessagePage sendingMessagePage=new SendingMessagePage();
+    HomePage homePage =new HomePage();
     Faker faker = new Faker();
     String name =faker.address().cityName();
 
@@ -33,58 +33,58 @@ public class Sending_Message_StepDefinition {
     @When("user click on the message button")
     public void user_click_on_the_message_button() {
 
-        sendingMessagePage.messageButton.click();
+        homePage.messageButton.click();
     }
     @When("writes his message")
     public void writes_his_message() {
-        Driver.getDriver().switchTo().frame(sendingMessagePage.frame);
-        sendingMessagePage.messageBoxInput.click();
-sendingMessagePage.messageBoxInput.sendKeys(name);
+        Driver.getDriver().switchTo().frame(homePage.frame);
+        homePage.messageBoxInput.click();
+homePage.messageBoxInput.sendKeys(name);
 Driver.getDriver().switchTo().defaultContent();
     }
     @When("user remove the All employees")
     public void user_remove_the() {
-sendingMessagePage.allEmployeesClosingButton.click();
+homePage.allEmployeesClosingButton.click();
     }
     @When("user able to select the specific name of employee or All employees")
     public void user_able_to_sellect_the_specific_name_of_emoployee_or_all_employees() {
-sendingMessagePage.addPersonsOrGroupButton.click();
-sendingMessagePage.recentButton.click();
-sendingMessagePage.recentAllEmployeesButton.click();
+homePage.addPersonsOrGroupButton.click();
+homePage.recentButton.click();
+homePage.recentAllEmployeesButton.click();
 
 
     }
     @Then("user should see his message is sent and displayed on top")
     public void user_should_see_his_message_is_sent_and_displayed_on_top() {
 
-        sendingMessagePage.sendButton.click();
+        homePage.sendButton.click();
         //System.out.println("sendingMessagePage.displayOfTheMessage.getText() = " + sendingMessagePage.displayOfTheMessage.getText());
 //wait.until(ExpectedConditions.invisibilityOf(sendingMessagePage.displayOfTheMessage));
 
         System.out.println(name);
-        Assert.assertEquals(sendingMessagePage.displayOfTheMessage.getText(),name);
+        Assert.assertEquals(homePage.displayOfTheMessage.getText(),name);
         BrowserUtilities.sleep(1);
 
     }
 
     @Then("user should see his message is sent and displayed on top use explicit wait")
     public void user_should_see_his_message_is_sent_and_displayed_on_top_use_explicit_wait() {
-        sendingMessagePage.sendButton.click();
+        homePage.sendButton.click();
 
-        wait.until(ExpectedConditions.invisibilityOf(sendingMessagePage.displayOfTheMessage));
+        wait.until(ExpectedConditions.invisibilityOf(homePage.displayOfTheMessage));
 
-        System.out.println("sendingMessagePage.displayOfTheMessage.getText() = " + sendingMessagePage.displayOfTheMessage.getText());
-        Assert.assertEquals(sendingMessagePage.displayOfTheMessage.getText(),name);
+        System.out.println("sendingMessagePage.displayOfTheMessage.getText() = " + homePage.displayOfTheMessage.getText());
+        Assert.assertEquals(homePage.displayOfTheMessage.getText(),name);
         BrowserUtilities.sleep(1);
 
     }
     @When("user able to select the specific name of employee")
     public void user_able_to_select_the_specific_name_of_employee() {
 
-        sendingMessagePage.addPersonsOrGroupButton.click();
-        sendingMessagePage.employeesAndDepartmentButton.click();
-        sendingMessagePage.employees.click();
-        sendingMessagePage.closeToOptionsWindowBtn.click();
+        homePage.addPersonsOrGroupButton.click();
+        homePage.employeesAndDepartmentButton.click();
+        homePage.employees.click();
+        homePage.closeToOptionsWindowBtn.click();
         //sendingMessagePage.messageButton.click();
     }
 
@@ -92,8 +92,8 @@ sendingMessagePage.recentAllEmployeesButton.click();
     public void user_able_to_select_the_specific_email_of_employee() {
         BrowserUtilities.sleep(2);
 
-        sendingMessagePage.addPersonsOrGroupButton.click();
-        sendingMessagePage.emailUsersButton.click();
+        homePage.addPersonsOrGroupButton.click();
+        homePage.emailUsersButton.click();
         //sendingMessagePage.email.click();
     }
 
@@ -101,24 +101,24 @@ sendingMessagePage.recentAllEmployeesButton.click();
     //13-==========================
     @Then("user should see that the message is to'All employees' by default.")
     public void user_should_see_that_the_message_is_to_all_employees_by_default() {
-        System.out.println("sendingMessagePage.allEmployeesButton.getText() = " + sendingMessagePage.allEmployeesButton.getText());
-        Assert.assertTrue(sendingMessagePage.allEmployeesButton.isDisplayed());
+        System.out.println("sendingMessagePage.allEmployeesButton.getText() = " + homePage.allEmployeesButton.getText());
+        Assert.assertTrue(homePage.allEmployeesButton.isDisplayed());
     }
     //9+12-==========================
     @Then("user should cancel his message")
     public void user_should_cancel_his_message() {
-       sendingMessagePage.cancelButton.click();
-       Assert.assertFalse(sendingMessagePage.cancelButton.isDisplayed());
+       homePage.cancelButton.click();
+       Assert.assertFalse(homePage.cancelButton.isDisplayed());
     }
     //7+8-======================
     @Then("user should see Error messages for mandatory reciepient fields:Please specify at least one person.")
     public void user_should_see_error_messages_for_mandatory_reciepient_fields() {
-             sendingMessagePage.sendButton.click();
+             homePage.sendButton.click();
 
 
-        System.out.println("sendingMessagePage.recipientErrorMessage2.getText() = " + sendingMessagePage.recipientErrorMessage2.getText());
+        System.out.println("sendingMessagePage.recipientErrorMessage2.getText() = " + homePage.recipientErrorMessage2.getText());
 
-        Assert.assertTrue(sendingMessagePage.recipientErrorMessage.isDisplayed());
+        Assert.assertTrue(homePage.recipientErrorMessage.isDisplayed());
 
 
 
@@ -126,8 +126,8 @@ sendingMessagePage.recentAllEmployeesButton.click();
     //6+5-======================
     @Then("user should see Error messages for mandatory message fields:The message title is not specified")
     public void user_should_see_error_messages_for_mandatory_message_fields() {
-        sendingMessagePage.sendButton.click();
-        System.out.println("sendingMessagePage.emptyMessageErrorMessage.getText() = " + sendingMessagePage.emptyMessageErrorMessage.getText());
-        Assert.assertTrue(sendingMessagePage.emptyMessageErrorMessage.isDisplayed());
+        homePage.sendButton.click();
+        System.out.println("sendingMessagePage.emptyMessageErrorMessage.getText() = " + homePage.emptyMessageErrorMessage.getText());
+        Assert.assertTrue(homePage.emptyMessageErrorMessage.isDisplayed());
     }
 }
