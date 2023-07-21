@@ -1,4 +1,4 @@
-@wip
+@B29G7-328
 Feature: User should be able to add link and text in message
 
     User story: As a user, I should be able to add link in message.
