@@ -11,12 +11,12 @@ import org.junit.runner.RunWith;
                 "rerun:target/rerun.txt",
                 "pretty",
                 "me.jvt.cucumber.report.PrettyReports:target/cucumber",
-                "json:target/cucumber.json"
+                "json:target/cucumber.json",
         },
 
         dryRun = false,
         publish = true,
-        tags = "@B29G7-423",
+        tags = "",
         features = "src/test/resources/features",
         glue =  "com/crm/step_definitions"
 
