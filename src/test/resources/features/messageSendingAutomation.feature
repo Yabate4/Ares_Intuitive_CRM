@@ -1,7 +1,7 @@
 @B29G7-420
 Feature: Default
 
-	
+
 	@B29G7-419
 	Scenario: 2 User should be able to send a message by filling in the mandatory fields .   Mandatory fields
 		Given user is on the Activity Stream page
@@ -9,7 +9,7 @@ Feature: Default
 		    And writes his message
 		    Then user should see his message is sent and displayed on top	
 
-	
+
 	@B29G7-418
 	Scenario: 1 User should be able to send a message by filling in the mandatory fields.   Mandatory fields
 		Given user is on the Activity Stream page
@@ -50,7 +50,7 @@ Feature: Default
 		    And user able to select the specific name of employee or All employees
 		    Then user should see Error messages for mandatory message fields:The message title is not specified	
 
-	
+	@yared1234
 	@B29G7-426
 	Scenario: 6 Verify if User should be able to see Error messages for mandatory message fields:"The message title is not specified"
 		Given user is on the Activity Stream page
@@ -59,7 +59,7 @@ Feature: Default
 		      # And user able to select the specific name of employee or All employees
 		    Then user should see Error messages for mandatory message fields:The message title is not specified	
 
-	
+	@natalia1234
 	@B29G7-427
 	Scenario: 7 Verify if User should be able to see Error messages for mandatory reciepient fields:"Please specify at least one person."
 		Given user is on the Activity Stream page

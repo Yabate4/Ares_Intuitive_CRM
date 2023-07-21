@@ -16,7 +16,7 @@ import org.junit.runner.RunWith;
 
         dryRun = false,
         publish = true,
-        tags = "",
+        tags = "@B29G7-420",
         features = "src/test/resources/features",
         glue =  "com/crm/step_definitions"
 
