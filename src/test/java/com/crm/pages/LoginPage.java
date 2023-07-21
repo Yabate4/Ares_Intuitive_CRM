@@ -23,6 +23,7 @@ public class LoginPage {
     @FindBy(css = ".login-btn")
     public WebElement loginButton;
 
+
     public void login_CRM(String username, String password){
         // we are using this.username because we need to call the instance variable from the class, if we do not use the this. keyword, the method will think that we are referring to the local username String from the method parameters
         this.username.sendKeys(username);
