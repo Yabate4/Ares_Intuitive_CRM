@@ -30,7 +30,7 @@ public class Appreciation_StepDefinitions {
     @When("user types text into the Message Content field")
     public void user_types_text_into_the_message_content_field() {
         Driver.getDriver().switchTo().frame(crmHomePage.MessageContextBoxIFrame);
-        crmHomePage.messageContentBox.sendKeys("ARES did an amazing job with Sprint Automation!");
+        crmHomePage.messageContentBox.sendKeys("ARES is the Best Team Ever!");
         Driver.getDriver().switchTo().defaultContent();
     }
 
@@ -49,7 +49,7 @@ public class Appreciation_StepDefinitions {
     public void user_sees_the_appreciation_message_displayed_on_message_board() {
         WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
         wait.until(ExpectedConditions.visibilityOf(crmHomePage.displayedMessage));
-        String expectedDisplayedMessage = "ARES did an amazing job with Sprint Automation!";
+        String expectedDisplayedMessage = "ARES is the Best Team Ever!";
         String actualDisplayedMessage = crmHomePage.displayedMessage.getText();
         Assert.assertEquals(expectedDisplayedMessage, actualDisplayedMessage);
         Driver.getDriver().manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
