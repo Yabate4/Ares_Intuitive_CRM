@@ -26,7 +26,7 @@ public class Login_StepDefinitions {
 
     @When("user enter username in the usernameInputBox")
     public void user_enter_in_the_username_input_box() {
-        loginPage.username.sendKeys(ConfigurationReader.getProperty("hr1_username"));
+        loginPage.username.sendKeys(ConfigurationReader.getProperty("hr78_username"));
 
 
     }
@@ -65,6 +65,11 @@ public class Login_StepDefinitions {
       loginPage.password.sendKeys(password);
     }
 
+
+    @Then("user logs in the CRM")
+    public void userLogsInTheCRM() {
+        loginPage.login_CRM(ConfigurationReader.getProperty("hr78_username"), ConfigurationReader.getProperty("password"));
+    }
 
 
 }
