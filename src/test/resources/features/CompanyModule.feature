@@ -35,6 +35,6 @@ Feature: As a user, I should be able to access to the Company page .
 		
 		    Examples:
 		      | username                      | password |
-		      | hr1@cybertekschool.com        | UserUser |
-		      | helpdesk1@cybertekschool.com  | UserUser |
-		      | marketing1@cybertekschool.com | UserUser |
+		      | hr80@cybertekschool.com        | UserUser |
+		      | helpdesk80@cybertekschool.com  | UserUser |
+		      | marketing80@cybertekschool.com | UserUser |
