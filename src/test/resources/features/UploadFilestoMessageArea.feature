@@ -23,9 +23,9 @@ Feature: As a user, I should be able to upload files and pictures as messages
 		
 		    Examples:
 		      | username                      | password |
-		      | hr80@cybertekschool.com        | UserUser |
-		      | helpdesk80@cybertekschool.com  | UserUser |
-		      | marketing80@cybertekschool.com | UserUser |
+		      | hr5@cybertekschool.com        | UserUser |
+		      | helpdesk4@cybertekschool.com  | UserUser |
+		      | marketing5@cybertekschool.com | UserUser |
 
 	#{color:#de350b}_*US:*_{color}
 	#
@@ -48,9 +48,9 @@ Feature: As a user, I should be able to upload files and pictures as messages
 		
 		    Examples:
 		      | username                      | password |
-		      | hr80@cybertekschool.com        | UserUser |
-		      | helpdesk80@cybertekschool.com  | UserUser |
-		      | marketing80@cybertekschool.com | UserUser |
+		      | hr5@cybertekschool.com        | UserUser |
+		      | helpdesk4@cybertekschool.com  | UserUser |
+		      | marketing5@cybertekschool.com | UserUser |
 
 	#{color:#de350b}_*US:*_{color}
 	#
@@ -72,6 +72,6 @@ Feature: As a user, I should be able to upload files and pictures as messages
 		
 		    Examples:
 		      | username                      | password |
-		      | hr80@cybertekschool.com        | UserUser |
-		      | helpdesk80@cybertekschool.com  | UserUser |
-		      | marketing80@cybertekschool.com | UserUser |
+		      | hr5@cybertekschool.com        | UserUser |
+		      | helpdesk4@cybertekschool.com  | UserUser |
+		      | marketing5@cybertekschool.com | UserUser |
