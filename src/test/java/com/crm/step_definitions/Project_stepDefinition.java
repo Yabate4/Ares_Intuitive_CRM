@@ -1,16 +1,13 @@
 package com.crm.step_definitions;
 
-import com.crm.pages.ProjectPage;
-import com.crm.utilities.BrowserUtilities;
+import com.crm.pages.EmployeesPage;
 import com.crm.utilities.ConfigurationReader;
 import com.crm.utilities.Driver;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.apache.commons.collections.list.PredicatedList;
 import org.junit.Assert;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
 import java.awt.*;
@@ -20,7 +17,7 @@ import java.util.List;
 
 public class Project_stepDefinition {
 
-    ProjectPage projectPage = new ProjectPage();
+    EmployeesPage employeesPage = new EmployeesPage();
     @Given("user is on the home page of the application.")
     public void user_is_on_the_home_page_of_the_application() {
         Driver.getDriver().get(ConfigurationReader.getProperty("crm_url"));
@@ -28,7 +25,7 @@ public class Project_stepDefinition {
 
     @When("User access Employees module.")
     public void user_access_employees_module() {
-        projectPage.employeeButton.click();
+        employeesPage.employeeButton.click();
     }
 
     @Then("Users sees the following 8 modules in the Employees page")
@@ -43,7 +40,7 @@ public class Project_stepDefinition {
         }
 
         List <String> modulesWebPage = new ArrayList<>();
-        for (WebElement each : projectPage.modulesOnEmployersPage) {
+        for (WebElement each : employeesPage.modulesOnEmployersPage) {
             modulesWebPage.add(each.getText());
         }
         System.out.println(modulesWebPage);
@@ -54,7 +51,7 @@ public class Project_stepDefinition {
     @And("user on the employee home page sees {string}")
     public void userOnTheEmployeeHomePageSees(String expectedTitle) {
 
-        Assert.assertEquals(expectedTitle, projectPage.companyStructure.getText());
+        Assert.assertEquals(expectedTitle, employeesPage.companyStructure.getText());
     }
 }
 
