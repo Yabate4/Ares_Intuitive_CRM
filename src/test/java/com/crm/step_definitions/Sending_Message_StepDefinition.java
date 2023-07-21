@@ -13,19 +13,25 @@ import org.junit.Assert;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 public class Sending_Message_StepDefinition {
     LoginPage loginPage = new LoginPage();
     HomePage homePage =new HomePage();
-    Faker faker = new Faker();
-    String name =faker.address().cityName();
+    Faker face = new Faker();
+    String old=face.chuckNorris().fact();
+    String name =old.replaceAll("Chuck Norris","Mehmet Microsoft Developer");
 
-    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(10));
+
+
+
+    WebDriverWait wait = new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(20));
     @Given("user is on the Activity Stream page")
     public void user_is_on_the_activity_stream_page() {
         Driver.getDriver().get(ConfigurationReader.getProperty("crm_url"));
-        loginPage.username.sendKeys(ConfigurationReader.getProperty("hr1_username"));
+        loginPage.username.sendKeys("hr37@cybertekschool.com");
         loginPage.password.sendKeys(ConfigurationReader.getProperty("password"));
         loginPage.loginButton.click();
 
@@ -36,7 +42,15 @@ public class Sending_Message_StepDefinition {
         homePage.messageButton.click();
     }
     @When("writes his message")
-    public void writes_his_message() {
+    public void writes_his_message() throws AWTException {
+        // this is method to maximise
+       /* Robot robot= new Robot();
+        for (int i = 0; i < 4; i++) {
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_SUBTRACT);
+            robot.keyRelease(KeyEvent.VK_SUBTRACT);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
+        }*/
         Driver.getDriver().switchTo().frame(homePage.frame);
         homePage.messageBoxInput.click();
 homePage.messageBoxInput.sendKeys(name);
@@ -64,6 +78,7 @@ homePage.recentAllEmployeesButton.click();
         System.out.println(name);
         Assert.assertEquals(homePage.displayOfTheMessage.getText(),name);
         BrowserUtilities.sleep(1);
+
 
     }
 
