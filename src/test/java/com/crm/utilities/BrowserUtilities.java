@@ -483,5 +483,15 @@ public class BrowserUtilities {
         new WebDriverWait(Driver.getDriver(), Duration.ofSeconds(time)).until(ExpectedConditions.presenceOfElementLocated(by));
     }
 
+    /**
+     *  compare two List<String> to each other
+     * @param list1
+     * @param list2
+     */
+    public static boolean CompareLists(List<String> list1, List<String> list2)
+    {
+        return list1.toString().contains(list2.toString());
+    }
+
 
 }
