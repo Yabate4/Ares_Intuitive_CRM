@@ -7,6 +7,7 @@ Feature: CRM Login Feature
   Background: For all scenarios user is on the login page of the CRM application
     Given user is on the login page of the CRM application
 
+   @wip
   Scenario: As a user, I should be able to login
     When user enter username in the usernameInputBox
     And user enters password in the passwordInputBox
