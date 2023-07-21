@@ -1,6 +1,7 @@
 package com.crm.step_definitions;
 
 import com.crm.pages.ProjectPage;
+import com.crm.utilities.BrowserUtilities;
 import com.crm.utilities.ConfigurationReader;
 import com.crm.utilities.Driver;
 import io.cucumber.java.en.And;
@@ -12,6 +13,8 @@ import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 
+import java.awt.*;
+import java.awt.event.KeyEvent;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,20 +32,29 @@ public class Project_stepDefinition {
     }
 
     @Then("Users sees the following 8 modules in the Employees page")
-    public void users_sees_the_following_modules_in_the_employees_page(List <String> modulesExpected ) {
-        List <WebElement> modulesWebPage = projectPage.modulesOnEmployersPage;
-        List<String> modulesActualString = new ArrayList<String>();
-
-        for(WebElement e : modulesWebPage){
-            modulesActualString.add(e.getText());
+    public void
+    users_sees_the_following_modules_in_the_employees_page(List <String> modulesExpected ) throws AWTException {
+        Robot robot = new Robot();
+        for (int i = 0; i < 4; i++) {
+            robot.keyPress(KeyEvent.VK_CONTROL);
+            robot.keyPress(KeyEvent.VK_SUBTRACT);
+            robot.keyRelease(KeyEvent.VK_SUBTRACT);
+            robot.keyRelease(KeyEvent.VK_CONTROL);
         }
-        Assert.assertTrue(modulesExpected.equals(modulesActualString) );
+
+        List <String> modulesWebPage = new ArrayList<>();
+        for (WebElement each : projectPage.modulesOnEmployersPage) {
+            modulesWebPage.add(each.getText());
+        }
+        System.out.println(modulesWebPage);
+        Assert.assertEquals(modulesExpected, modulesWebPage);
+
     }
 
     @And("user on the employee home page sees {string}")
     public void userOnTheEmployeeHomePageSees(String expectedTitle) {
 
-        Assert.assertEquals(projectPage.companyStructure.getText(), expectedTitle);
+        Assert.assertEquals(expectedTitle, projectPage.companyStructure.getText());
     }
 }
 
