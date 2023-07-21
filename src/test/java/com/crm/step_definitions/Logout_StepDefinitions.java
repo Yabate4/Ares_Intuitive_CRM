@@ -38,6 +38,7 @@ public class Logout_StepDefinitions {
     }
     @Then("users should be back to the CRM login page")
     public void users_should_be_back_to_the_crm_login_page() {
+        //BrowserUtilities.sleep(2);
 
         Assert.assertTrue(logoutPage.loginPage.isDisplayed());
     }
